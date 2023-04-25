@@ -37,7 +37,8 @@ To help you get started, here are some resources on how to use the necessary too
         -   [dbt Cloud and BigQuery for Admins](https://courses.getdbt.com/courses/dbt-cloud-and-bigquery-for-admins) (35 minutes)
 -   [How to Use Google BigQuery for FREE](https://levelup.gitconnected.com/how-to-use-google-bigquery-for-free-9c2a65e3a78c#)
 - How to create dashboard Google Looker Studio with Google Big Query
-		![[/how_to_export_gbq_to_looker.gif]]
+		![](https://github.com/technomonah/dbt_mcdm_challenge/blob/main/how_to_export_gbq_to_looker.gif)
+
 
 ### Additional Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
