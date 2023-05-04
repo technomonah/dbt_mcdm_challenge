@@ -4,9 +4,9 @@ Welcome to Marketing common data modelling challenge!
 ## Task
 At Improvado, we use marketing common data models (MCDM) to consolidate data from various ad platforms into a single source for our clients. MCDM is an imaginary model that maps fields from diverse datasets onto a single table or view, providing a comprehensive set of data for a particular report.
 
-However, let's imagine a scenario where one of our MCDMs, responsible for reporting on paid ad performance, malfunctions. As a result, the client's dashboard displays inaccurate numbers for TikTok Ads, which is unacceptable since TikTok is a crucial platform for our client.
+However, let's imagine a scenario where one of our MCDMs, responsible for reporting on paid ad performance, is lost somehow. Adding to the issue, the analyst responsible for this particular MCDM is currently on vacation. 
 
-Adding to the issue, the analyst responsible for this particular MCDM is currently on vacation. As a result, we are left with only raw data from the ad systems, the MCDM table structure for the client's report, and a broken dashboard.
+But we got everything to recreate lost MCMD: raw data from the ad systems, the MCDM table structure for this report, and a internal dashboard.
 
 In this situation, we need you to:
 - Begin a new project in dbt Cloud, utilizing Google Big Query as the DWH.
@@ -14,12 +14,16 @@ In this situation, we need you to:
 	- The model must include data from all the provided ad platforms.
 	- The model's columns must match the structure of the provided MCDM table.
 	- The model should be simple to update with any new ad platforms that may be introduced.
-- Recreate the broken [client's dashboard](https://lookerstudio.google.com/reporting/fa668749-b82f-41a8-a12e-f7d9c0733b57/page/tEnnC) using Google Looker Studio.
+- Recreate the [dashboard](https://lookerstudio.google.com/reporting/fa668749-b82f-41a8-a12e-f7d9c0733b57/page/tEnnC) using Google Looker Studio. Here are hints for metrics in dashboard:
+	- *Cost per engage* is just a spended sum divided by sum of engagements
+	- *Conversion cost* is calculated by dividing sum of spended by total conversions count
+	- *Impressions by channel* is a sum of impressions for each channel
+	- *CPC* gets like sum of spended divided by clicks count
 
 ### How to Submit
 To submit the task, please send an email to [vladimir.kobzev@improvado.io](mailto:vladimir.kobzev@improvado.io) with the following completed steps:
 -   A link to your dbt Cloud repository that contains the completed MCDM for the ads_basic_performance report.
--   A link to the fixed dashboard.
+-   A link to the recreated dashboard.
 -   A brief set of instructions for adding data from new ad platforms into your MCDM.
 
 ## Required Tools
@@ -56,3 +60,11 @@ The repository includes raw data from various ad platforms, as well as the MCDM 
 -   mcdm_paid_ads_basic_performance_structure
 
 To build the seeds, run `dbt seed` in the dbt Cloud console. Once the seeds have been built, you can access the data using `ref()`. For example, you can use `select * from {{ ref('src_ads_bing_all_data')}}` to access data from the `src_ads_bing_all_data` seed.
+
+### Q&A
+	Q: How to validate results for my model? 
+	A: Compare your dashboard with the dashboard from task. If some numbers doesn't match, then some fiels in your model got incorrect mapped  
+
+	Q: What if there're no MCDM sctructure field in raw datasource data?
+	A: So you began the main goal of this task :)
+	Suggest wich field or fields corresponds to MCDM ones by their meaning. If there're no such fields, then probably datasource just doesnt got them
