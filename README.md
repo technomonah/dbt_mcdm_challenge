@@ -68,3 +68,14 @@ To build the seeds, run `dbt seed` in the dbt Cloud console. Once the seeds have
 	Q: What if there're no MCDM sctructure field in raw datasource data?
 	A: So you began the main goal of this task :)
 	Suggest wich field or fields corresponds to MCDM ones by their meaning. If there're no such fields, then probably datasource just doesnt got them
+
+
+### Adding data from new ad platforms
+
+To add data from new ad platforms, follow these steps:
+
+- Copy the `.csv` data file into the `seeds` directory and run `dbt seed` in dbt Cloud.
+- Create a new `.sql` file in the `models/staging` directory and map related fields of the ad platform to the fields of the MCDM. Look at other files of this directory for examples.
+- Create a new `.sql` file in the `models/queries` directory and write the query you wish to add as the data source for your report.
+
+With these steps taken, you can add a new data source and from there, you can use that data source in Looker Studio to update your report and new charts.
